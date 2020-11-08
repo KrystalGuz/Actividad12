@@ -1,3 +1,4 @@
+#
 class Particula:
     def __init__(self, Id=0, OrigenX=0, OrigenY=0, DestinoX=0, DestinoY=0, Velocidad=0, Red=0, Green=0, Blue=0):
         self.__Id = Id

@@ -24,7 +24,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -746,6 +746,40 @@
            <font>
             <pointsize>12</pointsize>
            </font>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Dibujo</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0" colspan="2">
+         <widget class="QGraphicsView" name="graphicsView"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="Dibujar">
+          <property name="font">
+           <font>
+            <family>Broadway</family>
+           </font>
+          </property>
+          <property name="text">
+           <string>Dibujar</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="Limpiar">
+          <property name="font">
+           <font>
+            <family>Broadway</family>
+           </font>
+          </property>
+          <property name="text">
+           <string>Limpiar</string>
           </property>
          </widget>
         </item>

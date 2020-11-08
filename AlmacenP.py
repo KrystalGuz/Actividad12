@@ -1,6 +1,6 @@
 from Particulas import Particula
 import json
-
+#
 class AlmacenDeParticulas:
     def __init__(self):
         self.__particulas = []

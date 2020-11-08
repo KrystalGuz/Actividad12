@@ -23,14 +23,14 @@
      },
      {
           "Id": 4,
-          "OrigenX": 367,
-          "OrigenY": 219,
-          "DestinoX": 186,
-          "DestinoY": 235,
-          "Velocidad": 56,
-          "Red": 67,
-          "Green": 222,
-          "Blue": 169
+          "OrigenX": 300,
+          "OrigenY": 200,
+          "DestinoX": 100,
+          "DestinoY": 200,
+          "Velocidad": 50,
+          "Red": 60,
+          "Green": 200,
+          "Blue": 100
      },
      {
           "Id": 3,

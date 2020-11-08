@@ -1,8 +1,11 @@
-from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox,QTableWidgetItem
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox,QTableWidgetItem, QGraphicsScene
+from PySide2.QtGui import QPen, QColor, QTransform
 from PySide2.QtCore import Slot
+from random import randint
 from ui_mainwindow import Ui_MainWindow
 from AlmacenP import AlmacenDeParticulas
 from Particulas import Particula
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -21,6 +24,40 @@ class MainWindow(QMainWindow):
 
         self.ui.Mostrar_Tabla_Boton.clicked.connect(self.mostrar_tabla)
         self.ui.Buscar_Boton.clicked.connect(self.buscar_id)
+
+        self.ui.Dibujar.clicked.connect(self.dibujar)
+        self.ui.Limpiar.clicked.connect(self.limpiar)
+
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
+
+    @Slot()
+    def dibujar(self):
+        pen = QPen()
+        pen.setWidth(3)
+        for Particulas in self.AlmacenP:
+            r = float(Particulas.Red)
+            g = float(Particulas.Green)
+            b = float(Particulas.Blue)
+            # origen_x = randint(0, 500)
+            # origen_y = randint(0, 500)
+            # destino_x = randint(0, 500)
+            # destino_y = randint(0, 500)
+            color = QColor(r,g,b)
+            pen.setColor(color)
+            self.scene.addEllipse(float(Particulas.OrigenX) , float(Particulas.OrigenY), 3, 3, pen)
+            self.scene.addEllipse(float(Particulas.DestinoX), float(Particulas.DestinoY), 3, 3, pen)
+            self.scene.addLine(float(Particulas.OrigenX)+3, float(Particulas.OrigenY)+3, float(Particulas.DestinoX), float(Particulas.DestinoY), pen)
+
+    def wheelEvent(self, event):
+        if event.delta() > 0:
+            self.ui.graphicsView.scale(1.2, 1.2)
+        else:
+            self.ui.graphicsView.scale(0.8, 0.8)
+
+    @Slot()
+    def limpiar(self):
+        self.scene.clear()
 
     @Slot()
     def buscar_id(self):
